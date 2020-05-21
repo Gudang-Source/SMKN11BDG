@@ -162,20 +162,20 @@
                     <h3>Kompetensi Keahlian</h3>
                     <ul>
                       <?php foreach ($kompetensi_keahlian->result() as $row) : ?>
-                        <li><a href="<?php echo site_url('komp_keahlian/'.str_replace(" ","-",$row->kompetensi_keahlian_nama));?>"><?php echo $row->kompetensi_keahlian_nama;?><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                        <li><a href="<?php echo site_url('detail/'.str_replace(" ","-",$row->kompetensi_keahlian_nama));?>"><?php echo $row->kompetensi_keahlian_nama;?><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
                       <?php endforeach;?>
                     </ul>
                 </div>
                 <div class="blog-featured_post">
                     <h3>Populer</h3>
-                  <?php foreach ($populer->result() as $row) :?>
+                    <?php foreach ($populer->result() as $row) :?>
                     <div class="blog-featured-img_block">
                         <img width="35%" src="<?php echo base_url().'assets/images/'.$row->kompetensi_gambar;?>" class="img-fluid" alt="blog-featured-img">
                         <h5><a href="<?php echo site_url('komp_keahlian/'.$row->kompetensi_slug);?>"><?php echo limit_words($row->kompetensi_judul,3).'...';?></a></h5>
                         <p><?php echo limit_words($row->kompetensi_isi,5).'...';?></p>
                     </div>
                     <hr>
-                  <?php endforeach;?>
+                    <?php endforeach;?>
                 </div>
 
             </div>

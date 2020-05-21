@@ -145,12 +145,12 @@
                     <button type="submit" class="btn btn-warning btn-blogsearch">SEARCH</button>
                 </form>
                 <div class="blog-category_block">
-                  <h3>Kompetensi Keahlian</h3>
-                  <ul>
-                    <?php foreach ($kompetensi->result() as $row) : ?>
-                      <li><a href="<?php echo site_url('kompetensi/komp_keahlian/'.str_replace(" ","-",$row->komp_keahlian_nama));?>"><?php echo $row->komp_keahlian_nama;?><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
-                    <?php endforeach;?>
-                  </ul>
+                    <h3>Kompetensi Keahlian</h3>
+                    <ul>
+                      <?php foreach ($kompetensi_keahlian->result() as $row) : ?>
+                        <li><a href="<?php echo site_url('detail/'.str_replace(" ","-",$row->kompetensi_keahlian_nama));?>"><?php echo $row->kompetensi_keahlian_nama;?><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                      <?php endforeach;?>
+                    </ul>
                 </div>
                 <div class="blog-featured_post">
                     <h3>Populer</h3>

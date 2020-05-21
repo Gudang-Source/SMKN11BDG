@@ -62,7 +62,7 @@
             </span>
           </a>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-newspaper-o"></i>
             <span>Berita</span>
@@ -145,7 +145,7 @@
           </ul>
         </li>
 		
-		<li class="treeview">
+		<li class="treeview active">
           <a href="#">
             <i class="fa fa-user"></i>
             <span>Kompetensi</span>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 20 Bulan Mei 2020 pada 12.28
+-- Waktu pembuatan: 21 Bulan Mei 2020 pada 05.34
 -- Versi server: 10.4.10-MariaDB
 -- Versi PHP: 7.3.12
 
@@ -311,7 +311,13 @@ CREATE TABLE `tbl_kompetensi` (
 --
 
 INSERT INTO `tbl_kompetensi` (`kompetensi_id`, `kompetensi_judul`, `kompetensi_isi`, `kompetensi_keahlian_id`, `kompetensi_keahlian_nama`, `kompetensi_tanggal`, `kompetensi_views`, `kompetensi_gambar`, `kompetensi_img_slider`, `kompetensi_slug`) VALUES
-(1, 'RPL', '<p>SDHFLKDSJFKLJDLFKJSDLKFJLSDJFLKSDF</p>\r\n', 1, 'RPL', '2020-05-20 13:00:00', NULL, '4d612ede174a4c22e9e35e8e04599c7d.png', 0, 'rpl');
+(1, 'RPL', '<p>SDHFLKDSJFKLJDLFKJSDLKFJLSDJFLKSDF</p>\r\n', 1, 'RPL', '2020-05-20 13:00:00', NULL, '4d612ede174a4c22e9e35e8e04599c7d.png', 0, 'rpl'),
+(8, 'TKJ', '', 3, 'TKJ', '0000-00-00 00:00:00', NULL, 'f4560182d06afcc943b8e4d09fc50f7b.png', 0, 'tkj'),
+(9, 'Multimedia', '', 2, 'MM', '0000-00-00 00:00:00', NULL, '935a2f9317d645d7ce6f7973c248c452.jpg', 0, 'mm'),
+(10, 'OTKP', '', 5, 'OTKP', '0000-00-00 00:00:00', NULL, 'ae8e7f891395363e8e6b3bfddf3b45f2.jpeg', 0, 'otkp'),
+(11, 'AKL', '', 4, 'AKL', '0000-00-00 00:00:00', NULL, '4470827a572c88a51bdd5773e04d7d7b.jpeg', 0, 'akl'),
+(12, 'BDP', '', 6, 'BDP', '0000-00-00 00:00:00', NULL, '8bcdf8fd9d0fc129e88e0a3f13462a72.jpeg', 0, 'bdp'),
+(13, 'MLog', '', 7, 'Logistik', '0000-00-00 00:00:00', NULL, 'e9b3e45771b3c19774c937db0512af3b.jpg', 0, 'logistik');
 
 -- --------------------------------------------------------
 
@@ -331,7 +337,7 @@ CREATE TABLE `tbl_komp_keahlian` (
 
 INSERT INTO `tbl_komp_keahlian` (`komp_keahlian_id`, `komp_keahlian_nama`, `komp_keahlian_tgl`) VALUES
 (1, 'RPL', '2020-05-14 04:29:28'),
-(2, 'Multimedia', '2020-05-14 04:29:37'),
+(2, 'Multimedia', '2020-05-21 03:21:47'),
 (3, 'TKJ', '2020-05-14 04:29:43'),
 (4, 'AKL', '2020-05-14 04:29:49'),
 (5, 'OTKP', '2020-05-14 04:29:55'),
@@ -455,7 +461,8 @@ INSERT INTO `tbl_pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung
 (948, '2020-05-17 04:31:45', '::1', 'Chrome'),
 (949, '2020-05-18 04:18:42', '::1', 'Chrome'),
 (950, '2020-05-19 04:12:52', '::1', 'Chrome'),
-(951, '2020-05-20 00:01:05', '127.0.0.1', 'Firefox');
+(951, '2020-05-20 00:01:05', '127.0.0.1', 'Firefox'),
+(952, '2020-05-21 01:58:09', '127.0.0.1', 'Firefox');
 
 -- --------------------------------------------------------
 
@@ -795,7 +802,7 @@ ALTER TABLE `tbl_komentar`
 -- AUTO_INCREMENT untuk tabel `tbl_kompetensi`
 --
 ALTER TABLE `tbl_kompetensi`
-  MODIFY `kompetensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `kompetensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_komp_keahlian`
@@ -825,7 +832,7 @@ ALTER TABLE `tbl_pengumuman`
 -- AUTO_INCREMENT untuk tabel `tbl_pengunjung`
 --
 ALTER TABLE `tbl_pengunjung`
-  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=952;
+  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=953;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_prestasi`

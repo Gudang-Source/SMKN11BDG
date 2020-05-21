@@ -38,7 +38,8 @@ class Kompetensi extends CI_Controller{
 	                if ($this->upload->do_upload('filefoto'))
 	                {
 	                        $gbr = $this->upload->data();
-	                        //Compress Image
+							//Compress Image
+							
 	                        $config['image_library']='gd2';
 	                        $config['source_image']='./assets/images/'.$gbr['file_name'];
 	                        $config['create_thumb']= FALSE;
@@ -46,31 +47,32 @@ class Kompetensi extends CI_Controller{
 	                        $config['quality']= '60%';
 	                        $config['width']= 710;
 	                        $config['height']= 460;
-	                        $config['new_image']= './assets/images/'.$gbr['file_name'];
+	                        $config['new_image']= FCPATH.'/assets/images/'.$gbr['file_name'];
 	                        $this->load->library('image_lib', $config);
 	                        $this->image_lib->resize();
 
 	                        $gambar=$gbr['file_name'];
-													$judul=strip_tags($this->input->post('xjudul'));
-													$isi=$this->input->post('xisi');
-													$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $judul);
-													$trim     = trim($string);
-													$slug     = strtolower(str_replace(" ", "-", $trim));
-													$komp_keahlian_id=strip_tags($this->input->post('xkomp_keahlian_id'));
-													$data=$this->m_komp_keahlian->get_komp_keahlian_byid($komp_keahlian_id);
-													$q=$data->row_array();
-													$komp_keahlian_nama=$q['komp_keahlian_nama'];
-													//$imgslider=$this->input->post('ximgslider');
-													$imgslider='0';
-													//$kode=$this->session->userdata('idadmin');
-													//$user=$this->m_pengguna->get_pengguna_login($kode);
-													//$p=$user->row_array();
-													//$user_id=$p['pengguna_id'];
-													//$user_nama=$p['pengguna_nama'];
-													$this->m_kompetensi->simpan_kompetensi($judul,$isi,$komp_keahlian_id,$komp_keahlian_nama,$imgslider,$gambar,$slug);
-													echo $this->session->set_flashdata('msg','success');
-													redirect('admin/kompetensi');
-											}else{
+							$judul=strip_tags($this->input->post('xjudul'));
+							$isi=$this->input->post('xisi');
+							$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $judul);
+							$trim     = trim($string);
+							$slug     = strtolower(str_replace(" ", "-", $trim));
+							$komp_keahlian_id=strip_tags($this->input->post('xkomp_keahlian_id'));
+							$data=$this->m_komp_keahlian->get_komp_keahlian_byid($komp_keahlian_id);
+							$q=$data->row_array();
+							$komp_keahlian_nama=$q['komp_keahlian_nama'];
+							//$imgslider=$this->input->post('ximgslider');
+							$imgslider='0';
+							//$kode=$this->session->userdata('idadmin');
+							//$user=$this->m_pengguna->get_pengguna_login($kode);
+							//$p=$user->row_array();
+							//$user_id=$p['pengguna_id'];
+							//$user_nama=$p['pengguna_nama'];
+							$this->m_kompetensi->simpan_kompetensi($judul,$isi,$komp_keahlian_id,$komp_keahlian_nama,$imgslider,$gambar,$slug);
+							echo $this->session->set_flashdata('msg','success');
+							redirect('admin/kompetensi');
+						}else{
+						die($this->upload->display_errors());
 	                    echo $this->session->set_flashdata('msg','warning');
 	                    redirect('admin/kompetensi');
 	                }

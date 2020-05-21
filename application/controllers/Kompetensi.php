@@ -7,6 +7,7 @@ class Kompetensi extends CI_Controller{
 		$this->load->model('m_pengunjung');
 		$this->m_pengunjung->count_visitor();
 	}
+	
 	function index(){
 		$jum=$this->m_kompetensi->kompetensi();
         $page=$this->uri->segment(3);
@@ -15,7 +16,7 @@ class Kompetensi extends CI_Controller{
         else:
             $offset = $page;
         endif;
-        $limit=5;
+        $limit=3;
         $config['base_url'] = base_url() . 'kompetensi/index/';
             $config['total_rows'] = $jum->num_rows();
             $config['per_page'] = $limit;
@@ -41,11 +42,12 @@ class Kompetensi extends CI_Controller{
             $config['prev_link'] = '<< Prev';
             $this->pagination->initialize($config);
             $x['page'] =$this->pagination->create_links();
-						$x['data']=$this->m_kompetensi->kompetensi_perpage($offset,$limit);
-						$x['kompetensi']=$this->db->get('tbl_kompetensi');
-						$x['populer']=$this->db->query("SELECT * FROM tbl_kompetensi ORDER BY kompetensi_views DESC LIMIT 5");
-						$this->load->view('depan/v_kompetensi',$x);
+			$x['data']=$this->m_kompetensi->kompetensi_perpage($offset,$limit);
+			$x['kompetensi_keahlian']=$this->db->get('tbl_kompetensi');
+			$x['populer']=$this->db->query("SELECT * FROM tbl_kompetensi ORDER BY kompetensi_views DESC LIMIT 5");
+			$this->load->view('depan/v_kompetensi',$x);
 	}
+	
 	function detail($slugs){
 		$slug=htmlspecialchars($slugs,ENT_QUOTES);
 		$query = $this->db->get_where('tbl_kompetensi', array('kompetensi_slug' => $slug));
