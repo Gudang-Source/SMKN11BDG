@@ -114,32 +114,38 @@
 <!--============================= Kompetensi =============================-->
 <section class="blog-wrap">
     <div class="container">
+        <h2 class="text-center mb-3">Kompetensi Keahlian</h2>
         <div class="row">
-            <div class="col-md-8">
               <?php echo $this->session->flashdata('msg');?>
               <?php foreach ($data->result() as $row) : ?>
-                <div class="blog-single-item">
-                    <div class="blog-img_block">
-                        <img src="<?php echo base_url().'assets/images/'.$row->kompetensi_gambar;?>" class="img-fluid" alt="blog-img">
-                        
-                    </div>
-                    <div class="blog-tiltle_block">
-                        <h4><a href="<?php echo site_url('detail/'.$row->kompetensi_slug);?>"><?php echo $row->kompetensi_judul;?></a></h4>
-                        <h6> <a href="#"><i class="fa fa-user" aria-hidden="true"></i><span><?php echo $row->kompetensi_keahlian_nama;?></span></a></h6>
-                        <?php echo limit_words($row->kompetensi_isi,10).'...';?>
-                        <div class="blog-icons">
-                            <div class="blog-share_block">
-                                <a href="<?php echo site_url('detail/'.$row->kompetensi_slug);?>">Read More</a>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="blog-single-item">
+                                <img src="<?php echo base_url().'assets/images/'.$row->kompetensi_gambar;?>" class="img-fluid" alt="blog-img">
+                                <div class="card-title p-4">
+                                    <h4><a class="text-dark" href="<?php echo site_url('detail/'.$row->kompetensi_slug);?>"><?php echo $row->kompetensi_judul;?></a></h4>
+                                    <h6><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span><?php echo $row->kompetensi_keahlian_nama;?></span></a></h6>
+                                </div>
+                                <div class="card-text">
+                                    <p><?php echo limit_words($row->kompetensi_isi,10).'...';?></p>
+                                </div>
+                                <div class="card-footer text-right">
+                                    <div class="blog-share_block">
+                                        <a href="<?php echo site_url('detail/'.$row->kompetensi_slug);?>">Read More</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
               <?php endforeach;?>
-                <nav>
-                    <?php error_reporting(0); echo $page;?>
-                </nav>
-            </div>
-            <div class="col-md-4">
+        </div>
+        <nav class="m-5">
+            <?php error_reporting(0); echo $page;?>
+        </nav>
+        <div class="row">
+            <div class="col-md-6">
                 <form action="<?php echo site_url('blog/search');?>" method="get">
                     <input type="text" name="keyword" placeholder="Search" class="blog-search" required>
                     <button type="submit" class="btn btn-warning btn-blogsearch">SEARCH</button>
@@ -152,18 +158,23 @@
                       <?php endforeach;?>
                     </ul>
                 </div>
-                <div class="blog-featured_post">
-                    <h3>Populer</h3>
+            </div>
+            <div class="col-md-6">
+                <h3>Populer</h3>
+                <div class="card p-2">
                     <?php foreach ($populer->result() as $row) :?>
                       <div class="blog-featured-img_block">
-                          <img width="35%" src="<?php echo base_url().'assets/images/'.$row->kompetensi_gambar;?>" class="img-fluid" alt="blog-featured-img">
-                          <h5><a href="<?php echo site_url('detail/'.$row->kompetensi_slug);?>"><?php echo limit_words($row->kompetensi_judul,3).'...';?></a></h5>
-                          <p><?php echo limit_words($row->kompetensi_isi,5).'...';?></p>
+                        <div class="card-body">
+                            <img width="35%" src="<?php echo base_url().'assets/images/'.$row->kompetensi_gambar;?>" class="img-fluid" alt="blog-featured-img">
+                            <h5><a href="<?php echo site_url('detail/'.$row->kompetensi_slug);?>"><?php echo limit_words($row->kompetensi_judul,3).'...';?></a></h5>
+                        </div>
+                        <div class="card-text">
+                            <p><?php echo limit_words($row->kompetensi_isi,5).'...';?></p>
+                        </div>
                       </div>
                       <hr>
                     <?php endforeach;?>
                 </div>
-
             </div>
         </div>
     </div>

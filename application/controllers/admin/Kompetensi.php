@@ -8,6 +8,7 @@ class Kompetensi extends CI_Controller{
         };
 		$this->load->model('m_komp_keahlian');
 		$this->load->model('m_kompetensi');
+		$this->load->model('m_tulisan');
 		//$this->load->model('m_pengguna');
 		$this->load->library('upload');
 	}
@@ -23,7 +24,7 @@ class Kompetensi extends CI_Controller{
 	}
 	function get_edit(){
 		$kode=$this->uri->segment(4);
-		$x['data']=$this->m_tulisan->get_kompetensi_by_kode($kode);
+		$x['data']=$this->m_kompetensi->get_kompetensi_by_kode($kode);
 		$x['kat']=$this->m_komp_keahlian->get_all_komp_keahlian();
 		$this->load->view('admin/v_edit_kompetensi',$x);
 	}
