@@ -123,11 +123,11 @@
                         <div class="card-body">
                             <div class="blog-single-item">
                                 <img src="<?php echo base_url().'assets/images/'.$row->kompetensi_gambar;?>" class="img-fluid" alt="blog-img">
-                                <div class="card-title p-4">
+                                <div class="card-title p-4 mb-auto">
                                     <h4><a class="text-dark" href="<?php echo site_url('detail/'.$row->kompetensi_slug);?>"><?php echo $row->kompetensi_judul;?></a></h4>
-                                    <h6><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span><?php echo $row->kompetensi_keahlian_nama;?></span></a></h6>
+                                    <h6><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span> <?php echo $row->kompetensi_keahlian_nama;?></span></a></h6>
                                 </div>
-                                <div class="card-text">
+                                <div class="card-text p-4">
                                     <p><?php echo limit_words($row->kompetensi_isi,10).'...';?></p>
                                 </div>
                                 <div class="card-footer text-right">
